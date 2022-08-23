@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run: npm i
       - run: npm run lint
+      - run: node --version
   test:
     docker:
       - image: cimg/node:18.7.0
@@ -15,12 +16,14 @@ jobs:
       - checkout
       - run: npm i
       - run: npm run test
+      - run: node --version
   analyze:
     docker:
       - image: cimg/node:18.7.0
     steps:
       - checkout
       - run: npm audit
+      - run: node --version
 
 workflows:
   my_workflow:
